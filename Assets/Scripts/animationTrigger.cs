@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class animationTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject worldChanger;
 
     // Update is called once per frame
     void Update()
@@ -17,7 +13,7 @@ public class animationTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-
+        worldChanger.SetActive(true);
         GameObject.Find("player").GetComponent<Animator>().SetTrigger("fallTrigger");
         GameObject.Find("player").GetComponent<PlayerMovement>().moveSpeed = 0;
       
