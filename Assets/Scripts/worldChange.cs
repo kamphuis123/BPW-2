@@ -16,6 +16,7 @@ public class worldChange : MonoBehaviour
     void OnEnable()
     {
         changeWorld();
+
     }
 
     void changeWorld()
@@ -32,6 +33,10 @@ public class worldChange : MonoBehaviour
 
             
             world = true;
+            GameObject.Find("player").GetComponent<Animator>().SetTrigger("fallTrigger");
+            GameObject.Find("player").GetComponent<PlayerMovement>().moveSpeed = 0;
+
+
         }
         else
         {
@@ -42,4 +47,6 @@ public class worldChange : MonoBehaviour
             postProcessing.SetActive(false);
         }
     }
+
+
 }

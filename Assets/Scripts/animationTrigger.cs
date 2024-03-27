@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class animationTrigger : MonoBehaviour
 {
-    public GameObject worldChanger;
+    public PlayableDirector Timeline;
 
     // Update is called once per frame
     void Update()
@@ -13,10 +14,7 @@ public class animationTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        worldChanger.SetActive(true);
-        GameObject.Find("player").GetComponent<Animator>().SetTrigger("fallTrigger");
-        GameObject.Find("player").GetComponent<PlayerMovement>().moveSpeed = 0;
-      
+        Timeline.Play();
        
 
     }
