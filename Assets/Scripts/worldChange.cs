@@ -34,7 +34,7 @@ public class worldChange : MonoBehaviour
             
             world = true;
             GameObject.Find("player").GetComponent<Animator>().SetTrigger("fallTrigger");
-            GameObject.Find("player").GetComponent<PlayerMovement>().moveSpeed = 0;
+            //GameObject.Find("player").GetComponent<PlayerMovement>().moveSpeed = 0;
 
 
         }

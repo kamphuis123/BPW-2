@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;
-    public float LR;
-    public float UD;
-    public float mSpeed;
-    public float rSpeed; 
 
+    [SerializeField]
+    float moveSpeed, LR, UD, rSpeed;
 
-    // Update is called once per frame
     void Update()
     {
         walkAnim();
         playerMovement();
-
-
-
     }
 
-
+    #region movementStuff
     void walkAnim()
     {
         Animator anim = GetComponent<Animator>();
@@ -30,24 +23,20 @@ public class PlayerMovement : MonoBehaviour
 
     void playerMovement()
     {
-
         LR = Input.GetAxis("Horizontal");
         UD = Input.GetAxis("Vertical");
 
-        mSpeed = moveSpeed * UD; 
+        float mSpeed = moveSpeed * UD; 
 
         print(LR);
         print(UD);
 
         transform.position += transform.forward * Time.deltaTime * mSpeed;
         transform.Rotate(new Vector3(0, LR *rSpeed, 0) * Time.deltaTime);
-
-
-
-
     }
+    #endregion
 
-    
-        
-    
+
+
+
 }
