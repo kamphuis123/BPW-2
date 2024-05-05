@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class BackToMenu : MonoBehaviour
 {
+    public string Scene;
     private void OnEnable()
     {
-        SceneManager.LoadScene("Dam");
+        SceneManager.LoadScene(Scene);
     }
 }
