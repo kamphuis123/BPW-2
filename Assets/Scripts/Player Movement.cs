@@ -28,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
         float mSpeed = moveSpeed * UD; 
 
-        print(LR);
-        print(UD);
+        //print(LR);
+        //print(UD);
 
         transform.position += transform.forward * Time.deltaTime * mSpeed;
         transform.Rotate(new Vector3(0, LR *rSpeed, 0) * Time.deltaTime);
