@@ -7,6 +7,8 @@ public class Cutscene : MonoBehaviour
     public GameObject player;
     public GameObject wobImage;
     public GameObject gameImage;
+    public bool alreadyTriggered = false;
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -17,17 +19,28 @@ public class Cutscene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer = timer - 1 * Time.deltaTime;
+        if (timer <= 0)
+        {
+            wobImage.SetActive(false);
+            gameImage.SetActive(true);
+        }
+        if (timer >= 0.1)
+        {
+            wobImage.SetActive(true);
+            gameImage.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        wobImage.SetActive(true);
-        gameImage.SetActive(false);
+        if (alreadyTriggered == false) {
+            wobImage.SetActive(true);
+            gameImage.SetActive(false);
+            alreadyTriggered = true;
+            timer = 2;
+
+        }
     }
-    private void OnTriggerExit(Collider collider)
-    {
-        wobImage.SetActive(false);
-        gameImage.SetActive(true);
-    }
+  
 }

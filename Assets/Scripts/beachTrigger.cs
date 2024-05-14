@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class WaterCollider : MonoBehaviour
+public class beachTrigger : MonoBehaviour
 {
     public int timesDipped;
     public GameObject player;
@@ -12,7 +12,6 @@ public class WaterCollider : MonoBehaviour
     public AudioSource song1;
     public AudioSource song2;
     public AudioSource song3;
-    public GameObject blackScreen;
 
     void Start()
     {
@@ -25,17 +24,13 @@ public class WaterCollider : MonoBehaviour
         {
             state = StateEnum.s1;
         }
-        else if (timesDipped == 1)
+        else if (timesDipped == 2)
         {
             state = StateEnum.s2;
         }
-        else if (timesDipped >= 2)
+        else if (timesDipped == 3)
         {
             state = StateEnum.s3;
-        }
-        if (timesDipped >= 3)
-        {
-            blackScreen.SetActive(true);
         }
 
         checkState();
@@ -71,7 +66,7 @@ public class WaterCollider : MonoBehaviour
 
     private void Song2()
     {
-        song1.volume = 0.0f;
+        song1.volume = 0;
         song2.volume = 0.3f;
         song3.volume = 0;
 
@@ -79,8 +74,8 @@ public class WaterCollider : MonoBehaviour
 
     private void Song3()
     {
-        song1.volume = 0.0f;
-        song2.volume = 0.0f;
+        song1.volume = 0;
+        song2.volume = 0;
         song3.volume = 0.3f;
 
     }
@@ -88,14 +83,8 @@ public class WaterCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         player.transform.position = spawnPoint.transform.position;
-        timesDipped++;
-        if (timesDipped != 3)
-        {
-
-
-            fade.Play();
-
-        }
-
+        
+        
     }
+
 }
