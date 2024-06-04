@@ -16,6 +16,7 @@ public class beachTrigger : MonoBehaviour
     void Start()
     {
         state = StateEnum.s1;
+
     }
 
     private void Update()
@@ -84,7 +85,8 @@ public class beachTrigger : MonoBehaviour
     {
         player.transform.position = spawnPoint.transform.position;
         
-        
+
+
     }
 
 }

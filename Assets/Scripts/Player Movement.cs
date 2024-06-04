@@ -26,13 +26,14 @@ public class PlayerMovement : MonoBehaviour
         LR = Input.GetAxis("Horizontal");
         UD = Input.GetAxis("Vertical");
 
-        float mSpeed = moveSpeed * UD; 
-
+        
+        float mSpeed = moveSpeed * UD;
+        
         //print(LR);
         //print(UD);
 
         transform.position += transform.forward * Time.deltaTime * mSpeed;
-        transform.Rotate(new Vector3(0, LR *rSpeed, 0) * Time.deltaTime);
+        //transform.Rotate(new Vector3(0, LR *rSpeed, 0) * Time.deltaTime);
     }
     #endregion
 
